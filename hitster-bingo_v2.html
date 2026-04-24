@@ -18,79 +18,45 @@
 html,body{height:100%;overflow-x:hidden}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);line-height:1.4}
 #app{min-height:100vh;position:relative}
-
-/* ── Buttons ── */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:10px 18px;border-radius:10px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;cursor:pointer;border:none;transition:all .15s;white-space:nowrap;line-height:1;text-decoration:none}
 .bp{background:var(--gold);color:#000}.bp:hover{background:var(--gold2);transform:translateY(-1px);box-shadow:0 6px 20px rgba(232,160,32,.3)}
 .bg{background:var(--card);border:1px solid var(--bdr);color:var(--tx)}.bg:hover{background:rgba(255,255,255,.07)}
 .br{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.2);color:#f87171}.br:hover{background:rgba(239,68,68,.18)}
 .blg{padding:14px 24px;font-size:15px;border-radius:12px}
 .btn:disabled{opacity:.3;cursor:not-allowed;transform:none!important;box-shadow:none!important}
-
-/* ── Forms ── */
 .lbl{display:block;font-size:11px;color:var(--m2);font-weight:700;margin-bottom:5px;text-transform:uppercase;letter-spacing:.08em}
-.inp{width:100%;padding:11px 14px;background:var(--bg3);border:1.5px solid var(--bdr);border-radius:9px;color:var(--tx);font-family:'DM Sans',sans-serif;font-size:14px;outline:none;transition:border-color .15s}
+.inp{width:100%;padding:11px 14px;background:var(--bg3);border:1.5px solid var(--bdr);border-radius:99px;color:var(--tx);font-family:'DM Sans',sans-serif;font-size:14px;outline:none;transition:border-color .15s}
 .inp:focus{border-color:var(--gold)}.inp::placeholder{color:var(--m)}.inp:disabled{opacity:.5}
-
-/* ── Nav ── */
 .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid var(--bdr);background:var(--bg2);position:sticky;top:0;z-index:10}
 .ntit{font-family:'Syne',sans-serif;font-size:17px;font-weight:800}
-
-/* ── Cards ── */
 .card{background:var(--card);border:1px solid var(--bdr);border-radius:14px;padding:16px}
-
-/* ── Room code ── */
 .rcode{font-family:'Space Mono',monospace;font-size:clamp(32px,10vw,56px);font-weight:700;letter-spacing:clamp(4px,2vw,10px);color:var(--gold);background:var(--bg3);border:2px solid rgba(232,160,32,.25);border-radius:16px;padding:16px 24px;text-align:center}
-
-/* ── Timer ── */
 .tbar-wrap{height:6px;background:var(--bg4);border-radius:3px;overflow:hidden}
 .tbar{height:100%;background:var(--gold);border-radius:3px;transition:width .25s linear}
 .tbar.warn{background:var(--red)}
-
-/* ── Bingo grid ── */
 .bgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:5px}
 .bcell{aspect-ratio:1;border-radius:9px;border:1.5px solid var(--bdr);display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:default;transition:all .2s;position:relative;background:var(--bg3);overflow:hidden}
 .bcell.markable{cursor:pointer;animation:glow 1.2s ease-in-out infinite}
 .bcell.marked{background:rgba(34,197,94,.12);border-color:rgba(34,197,94,.5)}
-.bcell.marked .bicon{opacity:.5}
 .bcell.marked::after{content:'✓';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:clamp(16px,4vw,24px);color:var(--green);font-weight:900;background:rgba(34,197,94,.08)}
 .bicon{font-size:clamp(14px,4vw,22px);line-height:1;pointer-events:none}
 .blabel{font-size:clamp(7px,1.8vw,10px);color:var(--m2);font-weight:700;text-align:center;line-height:1.1;margin-top:2px;pointer-events:none}
-
-/* ── Wheel ── */
 .wheel-outer{position:relative;display:inline-flex;flex-direction:column;align-items:center}
 .wheel-ptr{width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-top:20px solid var(--gold);filter:drop-shadow(0 2px 6px rgba(232,160,32,.5));z-index:2;position:relative}
-
-/* ── Chips ── */
 .chip{display:inline-flex;align-items:center;gap:7px;background:var(--card);border:1px solid var(--bdr);border-radius:99px;padding:6px 14px;font-size:13px;font-weight:500}
-
-/* ── Phase badge ── */
-.pbadge{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:99px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
-
-/* ── Animations ── */
 @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
 @keyframes glow{0%,100%{box-shadow:0 0 0 0 rgba(232,160,32,.5)}50%{box-shadow:0 0 0 6px rgba(232,160,32,0)}}
 @keyframes pop{0%,100%{transform:scale(1)}40%{transform:scale(1.1)}}
 @keyframes spin{to{transform:rotate(360deg)}}
 @keyframes bingo{0%{transform:scale(1)}15%{transform:scale(1.12)}30%{transform:scale(.96)}45%{transform:scale(1.06)}60%{transform:scale(.98)}100%{transform:scale(1)}}
 .fu{animation:fadeUp .3s ease}
-
-/* ── Diff buttons ── */
 .dbtn{width:100%;padding:14px 16px;border-radius:11px;border:1.5px solid var(--bdr);background:var(--card);color:var(--tx);cursor:pointer;text-align:left;transition:all .18s;font-family:'DM Sans',sans-serif}
 .dbtn:hover,.dbtn.sel{border-color:var(--gold);background:rgba(232,160,32,.07)}
 .dbtn .dn{font-size:15px;font-weight:700;margin-bottom:2px}
 .dbtn .dd{font-size:12px;color:var(--m2)}
-
-/* ── Scroll ── */
-::-webkit-scrollbar{width:3px;height:3px}
-::-webkit-scrollbar-thumb{background:var(--bdr);border-radius:2px}
-
-/* ── Loading overlay ── */
 .loader{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;gap:14px}
 .loader-spin{width:36px;height:36px;border:3px solid var(--bdr);border-top-color:var(--gold);border-radius:50%;animation:spin 0.8s linear infinite}
 .loader p{color:var(--m2);font-size:14px}
-
-/* ── Reveal result ── */
 .result-box{border-radius:14px;padding:18px;text-align:center}
 .result-ok{background:rgba(34,197,94,.07);border:1px solid rgba(34,197,94,.25)}
 .result-nok{background:rgba(239,68,68,.07);border:1px solid rgba(239,68,68,.2)}
@@ -108,13 +74,13 @@ const REDIRECT   = 'https://lileluftballon040.github.io/hitster-bingo/hitster-bi
 const SCOPES     = 'streaming user-read-email user-read-private user-modify-playback-state user-read-playback-state';
 
 const FB_CFG = {
-  apiKey:            "AIzaSyACdmEGBs8k6ym867uzsWh1QQmMI_N9R90",
-  authDomain:        "hitster-bingo-8259b.firebaseapp.com",
-  databaseURL:       "https://hitster-bingo-8259b-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId:         "hitster-bingo-8259b",
-  storageBucket:     "hitster-bingo-8259b.firebasestorage.app",
+  apiKey: "AIzaSyACdmEGBs8k6ym867uzsWh1QQmMI_N9R90",
+  authDomain: "hitster-bingo-8259b.firebaseapp.com",
+  databaseURL: "https://hitster-bingo-8259b-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "hitster-bingo-8259b",
+  storageBucket: "hitster-bingo-8259b.firebasestorage.app",
   messagingSenderId: "426436730132",
-  appId:             "1:426436730132:web:ee8588c2d2e89ec2c27601",
+  appId: "1:426436730132:web:ee8588c2d2e89ec2c27601",
 };
 
 const CATS = {
@@ -150,15 +116,9 @@ const DIFF_META = {
   hard:   { name:'Hard 🔴',   desc:'+ Label · Genre · Popularität',          full:'Hard' },
 };
 
-// ════════════════════════════════════════════════════════════
-// FIREBASE
-// ════════════════════════════════════════════════════════════
 firebase.initializeApp(FB_CFG);
 const fdb = firebase.database();
 
-// ════════════════════════════════════════════════════════════
-// STATE
-// ════════════════════════════════════════════════════════════
 let PID = localStorage.getItem('hb_pid');
 if(!PID){ PID = 'p_'+Math.random().toString(36).slice(2,10); localStorage.setItem('hb_pid', PID); }
 
@@ -177,9 +137,6 @@ const S = {
   prevPhase:null, roundNum:0,
 };
 
-// ════════════════════════════════════════════════════════════
-// UTILS
-// ════════════════════════════════════════════════════════════
 const $ = id => document.getElementById(id);
 const app = document.getElementById('app');
 const show = html => { app.innerHTML = html; };
@@ -194,7 +151,7 @@ function genCode(){
 function genCard(diff){
   const fields=[];
   CATS[diff].forEach(c=>{ for(let i=0;i<c.count;i++) fields.push(c.id); });
-  return shuffle(fields);
+  return shuffle(fields).slice(0,25);
 }
 
 function checkBingo(marked){
@@ -215,7 +172,7 @@ function checkAnswer(catId, userAns, round){
   switch(catId){
     case 'title':      return fuzzy(norm(round.title||''), ua);
     case 'artist':     return fuzzy(norm(round.artist||''), ua);
-    case 'decade':     { const d=String(round.decade); return ua.includes(d.slice(0,3))||d.slice(0,3).includes(ua.replace(/\D/g,'').slice(0,3)); }
+    case 'decade':     { const d=String(round.decade); return ua.includes(d.slice(0,3)); }
     case 'year':       return parseInt(ua)===round.year;
     case 'album':      return fuzzy(norm(round.album||''), ua);
     case 'featuring':  return fuzzy(norm(round.featuring||''), ua);
@@ -247,9 +204,6 @@ function placeholder(catId){
     genre:'Genre…',popularity:'Wert 0–100…'}[catId]||'Antwort…';
 }
 
-// ════════════════════════════════════════════════════════════
-// FIREBASE HELPERS
-// ════════════════════════════════════════════════════════════
 function fbOn(ref, ev, cb){ ref.on(ev,cb); S.fListeners.push({ref,ev,cb}); }
 function fbOff(){ S.fListeners.forEach(({ref,ev,cb})=>ref.off(ev,cb)); S.fListeners=[]; }
 const rRef  = code => fdb.ref(`rooms/${code}`);
@@ -261,60 +215,42 @@ async function fbRm(path){ await fdb.ref(path).remove(); }
 async function fbGet(path){ return (await fdb.ref(path).once('value')).val(); }
 
 // ════════════════════════════════════════════════════════════
-// SPOTIFY AUTH
+// SPOTIFY AUTH (KORRIGIERT FÜR 2026)
 // ════════════════════════════════════════════════════════════
 function spotifyLogin(){
   sessionStorage.setItem('hb_return','host');
-  // Korrektur: Echte Spotify-URL und Umstellung auf response_type=token
   const authUrl = 'https://accounts.spotify.com/authorize'; 
   const url = `${authUrl}?client_id=${CLIENT_ID}&response_type=token&redirect_uri=${encodeURIComponent(REDIRECT)}&scope=${encodeURIComponent(SCOPES)}&show_dialog=true`;
   window.location.href = url;
 }
 
 function parseToken(){
-  // Da wir response_type=token nutzen, schickt Spotify die Daten hinter einem '#' (Hash)
-  const hash = window.location.hash.slice(1);
-  const params = new URLSearchParams(hash);
-  const token = params.get('access_token');
-  
-  if(token){
-    S.spotifyToken = token;
-    localStorage.setItem('hb_tok', token);
-    // Bereinigt die URL (entfernt den Token aus der Adresszeile)
+  const h=window.location.hash.slice(1);
+  const p=new URLSearchParams(h);
+  const t=p.get('access_token');
+  if(t){ 
+    S.spotifyToken=t; 
+    localStorage.setItem('hb_tok',t); 
     window.history.replaceState({}, document.title, window.location.pathname);
     return true; 
   }
-  
-  // Fallback auf im Browser gespeicherten Token
-  const st = localStorage.getItem('hb_tok');
-  if(st){ 
-    S.spotifyToken = st; 
-    return true; 
-  }
+  const st=localStorage.getItem('hb_tok');
+  if(st){ S.spotifyToken=st; return true; }
   return false;
 }
 
 async function tokenValid(){
   if(!S.spotifyToken) return false;
   try{
-    // Korrektur: Echter Spotify-Endpunkt zur Validierung
-    const r = await fetch('https://api.spotify.com/v1/me', {
-      headers: { Authorization: `Bearer ${S.spotifyToken}` }
-    });
+    const r=await fetch('https://api.spotify.com/v1/me',{headers:{Authorization:`Bearer ${S.spotifyToken}`}});
     return r.ok;
-  } catch(e) { 
-    return false; 
-  }
+  }catch{ return false; }
 }
 
-function clearToken(){ 
-  localStorage.removeItem('hb_tok'); 
-  S.spotifyToken = null; 
-}
-
+function clearToken(){ localStorage.removeItem('hb_tok'); S.spotifyToken=null; }
 
 // ════════════════════════════════════════════════════════════
-// SPOTIFY PLAYER SDK
+// PLAYER SDK
 // ════════════════════════════════════════════════════════════
 let sdkReady=false, sdkCB=null;
 window.onSpotifyWebPlaybackSDKReady=()=>{ sdkReady=true; if(sdkCB) sdkCB(); };
@@ -332,7 +268,6 @@ function initPlayer(token){
       const pl=new Spotify.Player({name:'Hitster Bingo',getOAuthToken:cb=>cb(token),volume:.75});
       pl.addListener('ready',({device_id})=>{ S.deviceId=device_id; S.spotifyPlayer=pl; res(pl); });
       pl.addListener('authentication_error',({message})=>{ clearToken(); rej(message); });
-      pl.addListener('initialization_error',({message})=>rej(message));
       pl.connect();
     };
     if(sdkReady) go(); else sdkCB=go;
@@ -351,7 +286,7 @@ async function playTrack(uri){
 async function stopPlayback(){ if(S.spotifyPlayer) await S.spotifyPlayer.pause(); }
 
 // ════════════════════════════════════════════════════════════
-// SPOTIFY API
+// SPOTIFY API (ECHTE ENDPUNKTE)
 // ════════════════════════════════════════════════════════════
 function extractPID(url){ return url.match(/playlist\/([A-Za-z0-9]+)/)?.[1]||url.trim(); }
 
@@ -361,7 +296,7 @@ async function loadTracks(url){
   let next=`https://api.spotify.com/v1/playlists/${pid}/tracks?limit=100&fields=next,items(track(id,name,artists,album(id,name,release_date),popularity))`;
   while(next && tracks.length<300){
     const r=await fetch(next,{headers:{Authorization:`Bearer ${S.spotifyToken}`}});
-    if(!r.ok) throw new Error('Playlist nicht gefunden. Bitte URL prüfen.');
+    if(!r.ok) throw new Error('Playlist nicht gefunden.');
     const d=await r.json();
     d.items?.forEach(i=>{ if(i.track?.id) tracks.push(i.track); });
     next=d.next;
@@ -379,7 +314,7 @@ async function buildRound(track, diff){
     album:track.album?.name||'',
     year, decade:Math.floor(year/10)*10,
     popularity:track.popularity||0,
-    label:'', genre:'',
+    label:'', genre:'', category:''
   };
   if(diff==='hard'){
     try{
@@ -388,13 +323,13 @@ async function buildRound(track, diff){
         fetch(`https://api.spotify.com/v1/artists/${track.artists[0].id}`,{headers:{Authorization:`Bearer ${S.spotifyToken}`}}).then(r=>r.json()),
       ]);
       rd.label=al.label||''; rd.genre=ar.genres?.[0]||'';
-    }catch{}
+    }catch(e){console.warn(e);}
   }
   return rd;
 }
 
 // ════════════════════════════════════════════════════════════
-// TIMER
+// GAME LOGIC
 // ════════════════════════════════════════════════════════════
 function startTimer(secs, onTick, onEnd){
   clearInterval(S.timerID);
@@ -414,16 +349,12 @@ function tickUI(left, max){
   if(lbl) lbl.textContent=left+'s';
 }
 
-// ════════════════════════════════════════════════════════════
-// WHEEL DRAW + SPIN
-// ════════════════════════════════════════════════════════════
 function drawWheel(canvas, cats){
   const ctx=canvas.getContext('2d');
   const W=canvas.width, H=canvas.height;
   const cx=W/2, cy=H/2, r=Math.min(cx,cy)-6;
   const n=cats.length, seg=2*Math.PI/n;
   ctx.clearRect(0,0,W,H);
-  // Outer ring
   ctx.beginPath(); ctx.arc(cx,cy,r+4,0,2*Math.PI);
   ctx.fillStyle='rgba(232,160,32,.15)'; ctx.fill();
   cats.forEach((c,i)=>{
@@ -432,731 +363,194 @@ function drawWheel(canvas, cats){
     ctx.fillStyle=c.color+(i%2?'dd':'bb'); ctx.fill();
     ctx.strokeStyle='rgba(0,0,0,.25)'; ctx.lineWidth=1.5; ctx.stroke();
     ctx.save(); ctx.translate(cx,cy); ctx.rotate(a0+seg/2);
-    const fs=Math.max(9,Math.min(14,Math.floor(r*.09)));
     ctx.font=`${Math.max(14,Math.floor(r*.14))}px serif`;
     ctx.textAlign='right'; ctx.textBaseline='middle';
-    ctx.fillText(c.icon, r-8, -fs*.6);
-    ctx.font=`bold ${fs}px 'DM Sans',sans-serif`;
-    ctx.fillStyle='#fff'; ctx.shadowBlur=4; ctx.shadowColor='rgba(0,0,0,.9)';
-    ctx.fillText(c.label, r-8, fs*.8);
+    ctx.fillText(c.icon, r-8, -10);
+    ctx.font=`bold 12px 'DM Sans',sans-serif`;
+    ctx.fillStyle='#fff';
+    ctx.fillText(c.label, r-8, 10);
     ctx.restore();
   });
-  // Center
-  const g=ctx.createRadialGradient(cx,cy,0,cx,cy,20);
-  g.addColorStop(0,'#2a2a3a'); g.addColorStop(1,'#111120');
-  ctx.beginPath(); ctx.arc(cx,cy,20,0,2*Math.PI); ctx.fillStyle=g; ctx.fill();
-  ctx.strokeStyle='rgba(232,160,32,.3)'; ctx.lineWidth=2; ctx.stroke();
 }
 
 function spinTo(canvas, cats, tIdx, done){
   const n=cats.length, seg=2*Math.PI/n;
   const tCenter=tIdx*seg+seg/2;
   const tRot=-Math.PI/2-tCenter;
-  const spins=(5+Math.floor(Math.random()*4))*2*Math.PI;
+  const spins=6*2*Math.PI;
   const cur=((S.wheelRot%(2*Math.PI))+2*Math.PI)%(2*Math.PI);
   const target=((tRot%(2*Math.PI))+2*Math.PI)%(2*Math.PI);
   const amount=spins+((target-cur+2*Math.PI)%(2*Math.PI));
-  const start=S.wheelRot, t0=performance.now(), dur=4200;
+  const start=S.wheelRot, t0=performance.now(), dur=4000;
   const ease=t=>1-Math.pow(1-t,4);
   function frame(now){
     const t=Math.min((now-t0)/dur,1);
     S.wheelRot=start+amount*ease(t);
     drawWheel(canvas,cats);
     if(t<1) requestAnimationFrame(frame);
-    else{ S.wheelRot=start+amount; drawWheel(canvas,cats); setTimeout(()=>done(cats[tIdx]),400); }
+    else{ setTimeout(()=>done(cats[tIdx]),400); }
   }
   requestAnimationFrame(frame);
 }
 
 // ════════════════════════════════════════════════════════════
-// SCREEN: LANDING
+// SCREENS
 // ════════════════════════════════════════════════════════════
 function scLanding(){
   show(`
-  <div style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 24px;text-align:center;background:radial-gradient(ellipse 80% 60% at 50% 20%,rgba(232,160,32,.07) 0%,transparent 70%)">
-    <div style="margin-bottom:6px;font-size:11px;letter-spacing:.28em;color:var(--gold);font-weight:700;text-transform:uppercase">Musik · Wissen · Bingo</div>
-    <h1 style="font-family:'Syne',sans-serif;font-size:clamp(64px,20vw,112px);font-weight:900;line-height:.85;letter-spacing:-4px;margin-bottom:6px">
-      HIT<span style="color:var(--gold)">STER</span>
-    </h1>
-    <div style="font-family:'Space Mono',monospace;font-size:clamp(14px,4vw,22px);letter-spacing:clamp(5px,3vw,16px);color:var(--m2);margin-bottom:44px">BINGO</div>
-    <div style="display:flex;flex-direction:column;gap:11px;width:100%;max-width:270px" class="fu">
-      <button class="btn bp blg" onclick="beginHost()">🎛️&nbsp; Host werden</button>
-      <button class="btn bg blg" onclick="scJoin()">🎮&nbsp; Mitspielen</button>
+  <div style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 24px;text-align:center;">
+    <h1 style="font-family:'Syne',sans-serif;font-size:80px;font-weight:900;">HIT<span style="color:var(--gold)">STER</span></h1>
+    <div style="font-family:'Space Mono',monospace;letter-spacing:10px;color:var(--m2);margin-bottom:40px">BINGO</div>
+    <div style="display:flex;flex-direction:column;gap:15px;width:100%;max-width:270px">
+      <button class="btn bp blg" onclick="beginHost()">🎛️ Host werden</button>
+      <button class="btn bg blg" onclick="scJoin()">🎮 Mitspielen</button>
     </div>
   </div>`);
 }
 
-// ════════════════════════════════════════════════════════════
-// SCREEN: HOST SETUP
-// ════════════════════════════════════════════════════════════
 function scHostSetup(){
   const ok=!!S.spotifyToken;
   show(`
-  <div style="min-height:100vh;display:flex;flex-direction:column">
-    <div class="nav">
-      <button class="btn bg" style="padding:6px 12px;font-size:13px" onclick="scLanding()">← Zurück</button>
-      <span class="ntit">Host Setup</span><div style="width:80px"></div>
+  <div style="padding:20px;max-width:460px;margin:0 auto;">
+    <div class="nav"><button class="btn bg" onclick="scLanding()">←</button><span class="ntit">Setup</span><div style="width:40px"></div></div>
+    <div style="margin:20px 0">
+      <label class="lbl">1 · Spotify</label>
+      ${ok?`<div style="color:var(--green)">✓ Verbunden</div>`:`<button class="btn bp" style="width:100%" onclick="spotifyLogin()">Anmelden</button>`}
     </div>
-    <div style="flex:1;overflow-y:auto;padding:20px 16px;max-width:460px;margin:0 auto;width:100%" class="fu">
-
-      <div style="margin-bottom:18px">
-        <label class="lbl">1 · Spotify verbinden</label>
-        ${ok
-          ?`<div style="display:flex;align-items:center;gap:10px;padding:11px 14px;background:rgba(34,197,94,.07);border:1px solid rgba(34,197,94,.22);border-radius:10px">
-              <span style="color:var(--green);font-size:20px">✓</span>
-              <span style="color:var(--green);font-weight:600;font-size:14px">Spotify verbunden</span>
-              <button class="btn br" style="margin-left:auto;padding:5px 10px;font-size:12px" onclick="clearToken();scHostSetup()">Trennen</button>
-            </div>`
-          :`<button class="btn bg" style="width:100%;padding:13px;gap:10px" onclick="spotifyLogin()">
-              <span style="font-size:20px;color:#1db954">♫</span> Mit Spotify anmelden
-            </button>
-            <div style="font-size:11px;color:var(--m);margin-top:5px">Spotify Premium erforderlich für vollständige Wiedergabe</div>`
-        }
-      </div>
-
-      <div style="margin-bottom:18px">
-        <label class="lbl">2 · Schwierigkeitsgrad</label>
-        <div style="display:flex;flex-direction:column;gap:7px">
-          ${['easy','medium','hard'].map(d=>`
-            <button class="dbtn ${S.difficulty===d?'sel':''}" onclick="S.difficulty='${d}';scHostSetup()">
-              <div class="dn">${DIFF_META[d].name}</div>
-              <div class="dd">${DIFF_META[d].desc}</div>
-            </button>`).join('')}
-        </div>
-      </div>
-
-      <div style="margin-bottom:24px">
-        <label class="lbl">3 · Spotify Playlist URL</label>
-        <input class="inp" id="purl" placeholder="https://open.spotify.com/playlist/…" value="${S.playlistUrl}"
-          oninput="S.playlistUrl=this.value;document.getElementById('crbtn').disabled=!canCreate()">
-      </div>
-
-      <button class="btn bp blg" id="crbtn" style="width:100%" ${canCreate()?'':'disabled'} onclick="doCreateRoom()">
-        🎲 Raum erstellen
-      </button>
+    <div style="margin:20px 0">
+      <label class="lbl">2 · Schwierigkeit</label>
+      ${['easy','medium','hard'].map(d=>`<button class="dbtn ${S.difficulty===d?'sel':''}" onclick="S.difficulty='${d}';scHostSetup()">${DIFF_META[d].name}</button>`).join('')}
     </div>
+    <div style="margin:20px 0">
+      <label class="lbl">3 · Playlist URL</label>
+      <input class="inp" id="purl" value="${S.playlistUrl}" oninput="S.playlistUrl=this.value;$('crbtn').disabled=!canCreate()">
+    </div>
+    <button class="btn bp blg" id="crbtn" style="width:100%" ${canCreate()?'':'disabled'} onclick="doCreateRoom()">Raum erstellen</button>
   </div>`);
 }
 
-function canCreate(){ 
-  return (!!S.spotifyToken || !!(new URLSearchParams(window.location.search).get('code'))) && !!S.difficulty && !!(S.playlistUrl||'').trim(); 
+function canCreate(){ return !!S.spotifyToken && !!S.difficulty && !!S.playlistUrl; }
+
+async function beginHost(){
+  parseToken();
+  if(S.spotifyToken){ if(!await tokenValid()){ clearToken(); } }
+  loadSDK(); S.role='host'; scHostSetup();
 }
 
-async function beginHost() {
-  // 1. Prüfen, ob wir einen Token (Bestand) oder einen Code (neu vom Login) in der URL haben
-  const hasAuth = parseToken();
-
-  // 2. Validierung des bestehenden Tokens
-  if (S.spotifyToken) {
-    const v = await tokenValid();
-    if (!v) { 
-      clearToken(); 
-      spotifyLogin(); // Falls der Token abgelaufen ist, sofort neu einloggen
-      return; 
-    }
-  } 
-  // 3. Wenn weder ein Token noch ein frischer Code gefunden wurde, Login erzwingen
-  else if (!hasAuth) {
-    spotifyLogin(); // Startet den Prozess mit response_type=code
-    return;
-  }
-
-  // 4. Erfolg: SDK laden und Setup-Screen anzeigen
-  loadSDK();
-  S.role = 'host';
-  scHostSetup();
+async function doCreateRoom(){
+  loading('Lade...');
+  try {
+    await initPlayer(S.spotifyToken);
+    S.tracks = await loadTracks(S.playlistUrl);
+    S.roomCode = genCode();
+    await fbSet(`rooms/${S.roomCode}`, { phase:'lobby', difficulty:S.difficulty, players:{}, roundNum:0 });
+    fbOn(fdb.ref(`rooms/${S.roomCode}/players`), 'value', snap => { S.players=snap.val()||{}; scHostLobby(); });
+    S.phase='lobby';
+  } catch(e) { alert(e); scHostSetup(); }
 }
 
-// ════════════════════════════════════════════════════════════
-// SCREEN: HOST LOBBY
-// ════════════════════════════════════════════════════════════
 function scHostLobby(){
   const pls=Object.values(S.players);
-  show(`
-  <div style="min-height:100vh;display:flex;flex-direction:column">
-    <div class="nav">
-      <div style="width:70px"></div>
-      <span class="ntit">🎮 Lobby</span>
-      <button class="btn br" style="padding:5px 10px;font-size:12px" onclick="doCancel()">Abbrechen</button>
-    </div>
-    <div style="flex:1;display:flex;flex-direction:column;align-items:center;padding:24px 16px;max-width:480px;margin:0 auto;width:100%" class="fu">
-      <p style="color:var(--m2);font-size:13px;margin-bottom:12px">Alle beigetreten? → Spiel starten</p>
-      <div style="font-size:12px;color:var(--m);margin-bottom:6px">Raum-Code</div>
-      <div class="rcode">${S.roomCode}</div>
-      <p style="color:var(--m);font-size:11px;margin-top:6px;margin-bottom:24px">
-        Gleiche Seite öffnen → "Mitspielen" → Code eingeben
-      </p>
-      <div style="width:100%;margin-bottom:24px">
-        <div style="font-size:11px;color:var(--m2);font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px">
-          Spieler (${pls.length})
-        </div>
-        <div id="lobby-players" style="display:flex;flex-wrap:wrap;gap:8px">
-          ${pls.length ? pls.map(p=>`<div class="chip">👤 ${p.name}</div>`).join('')
-            : '<div style="color:var(--m);font-size:13px">Warte auf Spieler…</div>'}
-        </div>
-      </div>
-      <div style="margin-top:auto;width:100%;max-width:280px;display:flex;flex-direction:column;gap:8px">
-        <div style="font-size:12px;color:var(--m2);text-align:center">
-          Modus: <strong style="color:var(--gold)">${DIFF_META[S.difficulty]?.name||''}</strong>
-        </div>
-        <button class="btn bp blg" id="start-btn" ${pls.length<1?'disabled':''} onclick="doStartGame()">
-          ▶ Spiel starten (${pls.length} Spieler)
-        </button>
-      </div>
-    </div>
+  show(`<div style="padding:40px;text-align:center">
+    <div class="rcode">${S.roomCode}</div>
+    <div style="margin:20px 0">${pls.map(p=>`<div class="chip">${p.name}</div>`).join('')}</div>
+    <button class="btn bp blg" ${pls.length<1?'disabled':''} onclick="doStartGame()">Start (${pls.length})</button>
   </div>`);
-}
-
-// ════════════════════════════════════════════════════════════
-// SCREEN: HOST GAME
-// ════════════════════════════════════════════════════════════
-function scHostGame(){
-  const p=S.phase, r=S.round;
-  const pls=Object.values(S.players);
-  const cat=r?getCat(S.difficulty,r.category):null;
-  const locked=pls.filter(x=>x.locked).length;
-
-  show(`
-  <div style="min-height:100vh;display:flex;flex-direction:column">
-    <div class="nav" style="flex-wrap:wrap;gap:8px">
-      <div style="display:flex;gap:6px;flex-wrap:wrap;flex:1">
-        ${pls.map(pl=>`<div class="chip" style="font-size:12px;padding:4px 10px">
-          ${pl.name}
-          <span style="font-family:'Space Mono',monospace;color:var(--gold);font-size:11px;font-weight:700">${pl.score||0}</span>
-        </div>`).join('')}
-      </div>
-      <button class="btn br" style="padding:5px 10px;font-size:12px" onclick="doEndGame()">✕ Ende</button>
-    </div>
-
-    <div style="flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;align-items:center;gap:14px">
-
-      ${(p==='start'||p==='ready') ? `
-        <p style="color:var(--m2);font-size:13px;text-align:center;margin-top:8px">Drehe das Rad um eine Kategorie zu bestimmen</p>
-        <div class="wheel-outer">
-          <div class="wheel-ptr"></div>
-          <canvas id="wheel" width="300" height="300" style="border-radius:50%;margin-top:4px"></canvas>
-        </div>
-        <button class="btn bp blg" id="spin-btn" onclick="doSpin()">🎡 Rad drehen</button>
-      ` : ''}
-
-      ${p==='spinning' ? `
-        <p style="color:var(--m2);font-size:14px;text-align:center;margin-top:8px">Das Rad dreht sich…</p>
-        <div class="wheel-outer">
-          <div class="wheel-ptr"></div>
-          <canvas id="wheel" width="300" height="300" style="border-radius:50%;margin-top:4px"></canvas>
-        </div>
-      ` : ''}
-
-      ${(p==='listening'||p==='guessing'||p==='revealing')&&r&&cat ? `
-        <div style="width:100%;max-width:440px">
-          <div style="text-align:center;margin-bottom:12px">
-            <div style="display:inline-flex;align-items:center;gap:8px;padding:8px 20px;border-radius:99px;background:${cat.color}20;border:1px solid ${cat.color}40;font-size:15px;font-weight:700;color:${cat.color}">
-              ${cat.icon} ${cat.label}
-            </div>
-          </div>
-
-          ${p!=='revealing'?`
-            <div style="margin-bottom:12px">
-              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
-                <span style="font-size:11px;color:var(--m2)">${p==='listening'?'🎧 Hören':'💭 Raten — abgestimmt: '+locked+'/'+pls.length}</span>
-                <span style="font-size:13px;color:var(--gold);font-family:'Space Mono',monospace;font-weight:700" id="tlbl">${S.timerLeft}s</span>
-              </div>
-              <div class="tbar-wrap"><div class="tbar" id="tbar" style="width:${S.timerLeft/30*100}%"></div></div>
-            </div>
-          `:''}
-
-          <div class="card" style="text-align:center;margin-bottom:12px">
-            <div style="font-size:10px;color:var(--m2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px">Aktueller Song</div>
-            <div style="font-size:clamp(18px,5vw,26px);font-weight:800;font-family:'Syne',sans-serif;line-height:1.1;margin-bottom:4px">${r.title}</div>
-            <div style="color:var(--m2);font-size:14px">${r.artist}</div>
-          </div>
-
-          ${p==='revealing'?`
-            <div class="result-box result-ok" style="margin-bottom:12px">
-              <div style="font-size:10px;color:var(--green);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px">Richtige Antwort</div>
-              <div style="font-size:clamp(22px,6vw,32px);font-weight:800;color:var(--green)">${answerLabel(r.category,r)}</div>
-            </div>
-            <div style="margin-bottom:12px">
-              <div style="font-size:11px;color:var(--m2);margin-bottom:7px;text-transform:uppercase;letter-spacing:.06em;font-weight:700">Antworten</div>
-              ${pls.map(pl=>`
-                <div style="display:flex;align-items:center;gap:8px;padding:8px 10px;background:var(--card);border-radius:8px;margin-bottom:4px">
-                  <span style="font-size:14px">${pl.answeredCorrect?'✅':'❌'}</span>
-                  <span style="flex:1;font-size:13px;font-weight:600">${pl.name}</span>
-                  <span style="font-size:13px;color:var(--m2)">${pl.answer||'—'}</span>
-                </div>`).join('')}
-            </div>
-            <div style="padding:10px 14px;background:rgba(232,160,32,.06);border:1px solid rgba(232,160,32,.18);border-radius:10px;font-size:13px;color:var(--gold);margin-bottom:12px">
-              ⏳ Spieler kreuzen ihre Bingo-Felder an…
-            </div>
-            <button class="btn bp blg" style="width:100%" onclick="doNextRound()">Nächste Runde →</button>
-          ` : ''}
-
-          ${p==='guessing'?`
-            <button class="btn bp" style="width:100%" onclick="doReveal()">🔍 Antworten aufdecken</button>
-          `:''}
-          ${p==='listening'?`
-            <div style="text-align:center;font-size:13px;color:var(--m)">Song läuft · Spieler hören zu…</div>
-          `:''}
-        </div>
-      ` : ''}
-    </div>
-  </div>`);
-
-  // Draw wheel if needed
-  const wc=$('wheel');
-  if(wc) drawWheel(wc, getCats());
-}
-
-function getCats(){ return CATS[S.difficulty]||CATS.easy; }
-
-// ════════════════════════════════════════════════════════════
-// SCREEN: PLAYER JOIN
-// ════════════════════════════════════════════════════════════
-function scJoin(){
-  S.role='player';
-  show(`
-  <div style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px">
-    <div style="width:100%;max-width:320px" class="fu">
-      <div style="text-align:center;margin-bottom:32px">
-        <h2 style="font-family:'Syne',sans-serif;font-size:32px;font-weight:900">HIT<span style="color:var(--gold)">STER</span></h2>
-        <div style="font-family:'Space Mono',monospace;font-size:14px;letter-spacing:6px;color:var(--m2)">BINGO</div>
-      </div>
-      <div style="margin-bottom:14px">
-        <label class="lbl">Raum-Code</label>
-        <input class="inp" id="jcode" placeholder="XXXXX" maxlength="5"
-          style="text-transform:uppercase;font-family:'Space Mono',monospace;font-size:22px;letter-spacing:6px;text-align:center"
-          oninput="this.value=this.value.toUpperCase()">
-      </div>
-      <div style="margin-bottom:22px">
-        <label class="lbl">Dein Name</label>
-        <input class="inp" id="jname" placeholder="Spielername" maxlength="20">
-      </div>
-      <button class="btn bp blg" style="width:100%" onclick="doJoin()">Beitreten →</button>
-      <button class="btn bg" style="width:100%;margin-top:8px" onclick="scLanding()">← Zurück</button>
-    </div>
-  </div>`);
-}
-
-// ════════════════════════════════════════════════════════════
-// SCREEN: PLAYER WAIT
-// ════════════════════════════════════════════════════════════
-function scPlayerWait(){
-  const pls=Object.values(S.players||{});
-  show(`
-  <div style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center">
-    <div style="font-size:44px;margin-bottom:16px">⏳</div>
-    <h2 style="font-family:'Syne',sans-serif;font-size:22px;font-weight:900;margin-bottom:6px">Warte auf Host…</h2>
-    <p style="color:var(--m2);font-size:13px;margin-bottom:24px">Code: <strong style="color:var(--gold);font-family:'Space Mono',monospace">${S.roomCode}</strong></p>
-    <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;max-width:340px">
-      ${pls.map(p=>`<div class="chip">${p.name===S.playerName?'👤 '+p.name+' (Du)':'👤 '+p.name}</div>`).join('')}
-    </div>
-  </div>`);
-}
-
-// ════════════════════════════════════════════════════════════
-// SCREEN: PLAYER GAME
-// ════════════════════════════════════════════════════════════
-function scPlayerGame(){
-  const p=S.phase, r=S.round;
-  const card=S.myCard, marked=S.myMarked;
-  const cat=r?getCat(S.difficulty,r.category):null;
-
-  if(!card){ scPlayerWait(); return; }
-
-  show(`
-  <div style="min-height:100vh;display:flex;flex-direction:column">
-    <div style="padding:9px 14px;border-bottom:1px solid var(--bdr);background:var(--bg2);display:flex;align-items:center;justify-content:space-between;gap:8px">
-      <div style="font-size:13px;font-weight:600">👤 ${S.playerName}</div>
-      ${cat?`<div style="display:inline-flex;align-items:center;gap:6px;padding:3px 11px;border-radius:99px;background:${cat.color}18;border:1px solid ${cat.color}35;font-size:12px;font-weight:700;color:${cat.color}">${cat.icon} ${cat.label}</div>`:''}
-      <div style="font-family:'Space Mono',monospace;font-size:11px;color:var(--m)">${S.roomCode}</div>
-    </div>
-
-    <div style="flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:10px">
-
-      ${(p==='listening'||p==='guessing')&&r?`
-        <div>
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
-            <span style="font-size:11px;color:var(--m2)">${p==='listening'?'🎧 Hören':'💭 Antwort eingeben'}</span>
-            <span style="font-size:13px;color:var(--gold);font-family:'Space Mono',monospace;font-weight:700" id="tlbl">${S.timerLeft}s</span>
-          </div>
-          <div class="tbar-wrap"><div class="tbar" id="tbar" style="width:${S.timerLeft/30*100}%"></div></div>
-        </div>
-      `:''}
-
-      ${p==='listening'&&r&&cat?`
-        <div class="card" style="text-align:center;padding:20px">
-          <div style="font-size:36px;margin-bottom:8px">${cat.icon}</div>
-          <div style="font-size:15px;font-weight:700;margin-bottom:4px">Hör rein…</div>
-          <div style="font-size:13px;color:var(--m2)">Denk schon mal an <span style="color:${cat.color};font-weight:700">${cat.label}</span></div>
-        </div>
-      `:''}
-
-      ${p==='guessing'&&r&&cat?`
-        <div>
-          <label class="lbl">${cat.icon} ${cat.label}</label>
-          <input class="inp" id="ans-inp" placeholder="${placeholder(r.category)}"
-            value="${S.myAnswer}" ${S.answerLocked?'disabled':''}
-            oninput="S.myAnswer=this.value" style="font-size:15px;margin-bottom:8px">
-          <button class="btn bp" style="width:100%" ${S.answerLocked?'disabled':''} onclick="doSubmit()">
-            ${S.answerLocked?'✓ Abgeschickt':'Antwort abschicken'}
-          </button>
-          ${S.answerLocked?`<div style="text-align:center;font-size:12px;color:var(--green);margin-top:6px">✓ Eingereicht</div>`:''}
-        </div>
-      `:''}
-
-      ${(p==='revealing'||p==='marking')&&r&&cat?`
-        <div class="${S.amICorrect?'result-box result-ok':'result-box result-nok'}">
-          <div style="font-size:26px;margin-bottom:6px">${S.amICorrect?'✅':'❌'}</div>
-          <div style="font-size:11px;color:var(--m2);margin-bottom:2px">Richtige Antwort</div>
-          <div style="font-size:clamp(18px,5vw,24px);font-weight:800;color:${S.amICorrect?'var(--green)':'var(--tx)'}">${answerLabel(r.category,r)}</div>
-          ${S.myAnswer?`<div style="font-size:12px;color:var(--m2);margin-top:4px">Deine Antwort: „${S.myAnswer}"</div>`:''}
-        </div>
-        ${S.amICorrect&&S.canMark?`
-          <div style="padding:10px;background:rgba(232,160,32,.06);border:1px solid rgba(232,160,32,.2);border-radius:10px;text-align:center;font-size:13px;color:var(--gold)">
-            ☝️ Tippe auf ein <strong>${cat.label}</strong>-Feld unten!
-          </div>
-        `:!S.amICorrect?`<div style="text-align:center;font-size:13px;color:var(--m)">Warte auf die nächste Runde…</div>`:''}
-      `:''}
-
-      ${p==='spinning'?`
-        <div style="text-align:center;padding:30px">
-          <div style="font-size:40px;margin-bottom:10px">🎡</div>
-          <div style="color:var(--m2)">Das Rad dreht sich…</div>
-        </div>
-      `:''}
-
-      <div>
-        <div style="font-size:11px;color:var(--m2);font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:7px">Deine Bingo-Karte</div>
-        <div class="bgrid">
-          ${card.map((cid,i)=>{
-            const c=getCat(S.difficulty,cid);
-            const isM=marked[i];
-            const canM=S.canMark&&!isM&&cid===(r&&r.category);
-            return `<div class="bcell ${isM?'marked':''} ${canM?'markable':''}"
-              style="border-color:${isM?'rgba(34,197,94,.5)':canM?c.color:'var(--bdr)'};background:${isM?'rgba(34,197,94,.1)':canM?c.color+'15':'var(--bg3)'}"
-              onclick="${canM?`doMark(${i})`:'void(0)'}">
-              <span class="bicon">${c.icon}</span>
-              <span class="blabel" style="color:${canM?c.color:isM?'var(--green)':'var(--m)'}">${c.label}</span>
-            </div>`;
-          }).join('')}
-        </div>
-      </div>
-      <div style="height:12px"></div>
-    </div>
-  </div>`);
-}
-
-// ════════════════════════════════════════════════════════════
-// SCREEN: WIN
-// ════════════════════════════════════════════════════════════
-function scWin(name){
-  show(`
-  <div style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 24px;text-align:center;background:radial-gradient(ellipse 60% 50% at 50% 30%,rgba(232,160,32,.1) 0%,transparent 70%)">
-    <div style="font-size:72px;margin-bottom:16px;animation:pop .6s ease">🏆</div>
-    <div style="font-family:'Space Mono',monospace;font-size:clamp(26px,8vw,44px);font-weight:700;color:var(--gold);margin-bottom:8px;animation:bingo .8s ease">BINGO!</div>
-    <div style="font-family:'Syne',sans-serif;font-size:clamp(18px,5vw,28px);font-weight:900;margin-bottom:32px">${name} gewinnt!</div>
-    <div style="display:flex;gap:12px">
-      <button class="btn bg blg" onclick="scLanding()">🏠 Home</button>
-      ${S.role==='host'?`<button class="btn bp blg" onclick="fbOff();S.roomCode=null;S.phase=null;scHostSetup()">🎮 Nochmal</button>`:''}
-    </div>
-  </div>`);
-}
-
-// ════════════════════════════════════════════════════════════
-// ACTIONS · HOST
-// ════════════════════════════════════════════════════════════
-async function doCreateRoom(){
-  const url=(S.playlistUrl||'').trim();
-  if(!url){ alert('Bitte Playlist-URL eingeben'); return; }
-
-  loading('Verbinde Spotify…');
-  try{
-    await initPlayer(S.spotifyToken);
-  }catch(e){
-    clearToken(); alert('Spotify-Fehler: '+e+'\nBitte neu anmelden.'); scHostSetup(); return;
-  }
-
-  loading('Lade Playlist…');
-  try{
-    S.tracks=await loadTracks(url);
-    if(S.tracks.length<5){ alert('Playlist braucht mind. 5 Songs!'); scHostSetup(); return; }
-  }catch(e){ alert(e.message); scHostSetup(); return; }
-
-  const code=genCode();
-  S.roomCode=code; S.usedIds=new Set();
-
-  await fbSet(`rooms/${code}`,{
-    phase:'lobby', difficulty:S.difficulty, hostId:PID,
-    round:null, players:{}, roundNum:0,
-  });
-
-  // Listen to players
-  fbOn(fdb.ref(`rooms/${code}/players`),'value',snap=>{
-    S.players=snap.val()||{};
-    if(S.phase==='lobby') scHostLobby();
-    else if(S.phase==='revealing'||S.phase==='marking'){
-      // Check bingo
-      for(const pl of Object.values(S.players)){
-        if(pl.bingo){ scWin(pl.name); return; }
-      }
-    }
-  });
-
-  S.phase='lobby';
-  scHostLobby();
-}
-
-function loading(msg){
-  show(`<div class="loader"><div class="loader-spin"></div><p>${msg}</p></div>`);
 }
 
 async function doStartGame(){
-  const pls=Object.entries(S.players);
-  if(!pls.length) return;
+  for(const pid in S.players){ await fbUpd(`rooms/${S.roomCode}/players/${pid}`, { card:genCard(S.difficulty), marked:Array(25).fill(false), score:0 }); }
+  await fbUpd(`rooms/${S.roomCode}`, { phase:'ready' });
+  S.phase='ready'; scHostGame();
+}
 
-  // Assign cards
-  for(const [pid] of pls){
-    const card=genCard(S.difficulty);
-    await fbUpd(`rooms/${S.roomCode}/players/${pid}`,{
-      card, marked:Array(25).fill(false),
-      answer:'', locked:false, answeredCorrect:false, score:0, bingo:false,
-    });
-  }
-
-  await fbUpd(`rooms/${S.roomCode}`,{phase:'ready'});
-  S.phase='ready';
-  S.roundNum=0;
-  scHostGame();
+function scHostGame(){
+  const p=S.phase, r=S.round;
+  show(`<div style="padding:20px;text-align:center">
+    ${(p==='ready')?`<canvas id="wheel" width="300" height="300"></canvas><br><button class="btn bp" onclick="doSpin()">Drehen</button>`:''}
+    ${(p==='listening'||p==='guessing')?`<h2>${r.title}</h2><p>${r.artist}</p><div class="tbar-wrap"><div id="tbar" class="tbar"></div></div>`:''}
+    ${(p==='revealing')?`<h1>${answerLabel(r.category, r)}</h1><button class="btn bp" onclick="doNextRound()">Weiter</button>`:''}
+  </div>`);
+  if(p==='ready') drawWheel($('wheel'), getCats());
 }
 
 async function doSpin(){
-  const cats=getCats();
-  const tIdx=Math.floor(Math.random()*cats.length);
-  await fbUpd(`rooms/${S.roomCode}`,{phase:'spinning'});
-  S.phase='spinning';
-  scHostGame();
-
-  const wc=$('wheel');
-  if(!wc) return;
-  drawWheel(wc,cats);
-
-  spinTo(wc, cats, tIdx, async (selCat)=>{
-    // Pick track
-    const avail=S.tracks.filter(t=>{
-      if(S.usedIds.has(t.id)) return false;
-      if(selCat.id==='featuring' && t.artists.length<2) return false;
-      return true;
-    });
-    if(!avail.length){
-      alert('Keine passenden Songs mehr – Runde überspringen.');
-      await fbUpd(`rooms/${S.roomCode}`,{phase:'ready'});
-      S.phase='ready'; scHostGame(); return;
-    }
-
-    const track=avail[Math.floor(Math.random()*avail.length)];
-    S.usedIds.add(track.id);
-
-    loading('Lade Song…');
-    let rd;
-    try{ rd=await buildRound(track, S.difficulty); }
-    catch(e){ alert('Song-Fehler: '+e.message); S.phase='ready'; scHostGame(); return; }
-    rd.category=selCat.id;
-    S.round=rd;
-    S.roundNum++;
-
-    // Reset player answers
-    for(const pid of Object.keys(S.players)){
-      await fbUpd(`rooms/${S.roomCode}/players/${pid}`,{answer:'',locked:false,answeredCorrect:false});
-    }
-
-    await fbUpd(`rooms/${S.roomCode}`,{phase:'listening', round:rd, roundNum:S.roundNum});
-    S.phase='listening';
-
+  const cats=getCats(); const tIdx=Math.floor(Math.random()*cats.length);
+  await fbUpd(`rooms/${S.roomCode}`, { phase:'spinning' });
+  spinTo($('wheel'), cats, tIdx, async (cat)=>{
+    const track = S.tracks[Math.floor(Math.random()*S.tracks.length)];
+    const rd = await buildRound(track, S.difficulty);
+    rd.category = cat.id; S.round = rd;
+    await fbUpd(`rooms/${S.roomCode}`, { phase:'listening', round:rd });
+    S.phase='listening'; scHostGame();
     await playTrack(rd.uri);
-    scHostGame();
-
-    startTimer(30,
-      (l,m)=>{ S.timerLeft=l; tickUI(l,m); },
-      async()=>{
-        await fbUpd(`rooms/${S.roomCode}`,{phase:'guessing'});
-        S.phase='guessing'; scHostGame();
-        startTimer(30,
-          (l,m)=>{ S.timerLeft=l; tickUI(l,m); },
-          async()=>{
-            for(const pid of Object.keys(S.players)){
-              if(!S.players[pid]?.locked)
-                await fbUpd(`rooms/${S.roomCode}/players/${pid}`,{locked:true});
-            }
-          }
-        );
-      }
-    );
+    startTimer(30, tickUI, async()=>{ 
+      await fbUpd(`rooms/${S.roomCode}`, { phase:'guessing' }); 
+      S.phase='guessing'; scHostGame();
+      startTimer(30, tickUI, doReveal);
+    });
   });
 }
 
 async function doReveal(){
-  stopTimer();
-  await stopPlayback();
-
-  for(const [pid,pl] of Object.entries(S.players)){
-    const correct=checkAnswer(S.round.category, pl.answer||'', S.round);
-    const ns=(pl.score||0)+(correct?1:0);
-    await fbUpd(`rooms/${S.roomCode}/players/${pid}`,{answeredCorrect:correct, score:ns});
+  stopTimer(); await stopPlayback();
+  for(const pid in S.players){
+    const pl = S.players[pid];
+    const correct = checkAnswer(S.round.category, pl.answer, S.round);
+    await fbUpd(`rooms/${S.roomCode}/players/${pid}`, { answeredCorrect:correct, score:(pl.score||0)+(correct?1:0) });
   }
-
-  await fbUpd(`rooms/${S.roomCode}`,{phase:'revealing'});
-  S.phase='revealing';
-  scHostGame();
+  await fbUpd(`rooms/${S.roomCode}`, { phase:'revealing' });
+  S.phase='revealing'; scHostGame();
 }
 
-async function doNextRound(){
-  await fbUpd(`rooms/${S.roomCode}`,{phase:'ready', round:null});
-  S.phase='ready'; S.round=null;
-  scHostGame();
+function doNextRound(){ fbUpd(`rooms/${S.roomCode}`, { phase:'ready', round:null }); S.phase='ready'; scHostGame(); }
+
+function scJoin(){
+  show(`<div style="padding:40px">
+    <input class="inp" id="jcode" placeholder="CODE"><br><br>
+    <input class="inp" id="jname" placeholder="NAME"><br><br>
+    <button class="btn bp" onclick="doJoin()">Go</button>
+  </div>`);
 }
 
-async function doEndGame(){
-  if(!confirm('Spiel wirklich beenden?')) return;
-  stopTimer(); await stopPlayback(); fbOff();
-  if(S.roomCode) await fbRm(`rooms/${S.roomCode}`);
-  S.roomCode=null; scLanding();
-}
-
-async function doCancel(){
-  fbOff();
-  if(S.roomCode) await fbRm(`rooms/${S.roomCode}`);
-  S.roomCode=null; scLanding();
-}
-
-// ════════════════════════════════════════════════════════════
-// ACTIONS · PLAYER
-// ════════════════════════════════════════════════════════════
 async function doJoin(){
-  const code=($('jcode')?.value||'').trim().toUpperCase();
-  const name=($('jname')?.value||'').trim();
-  if(code.length!==5){ alert('Bitte 5-stelligen Code eingeben'); return; }
-  if(!name){ alert('Bitte Name eingeben'); return; }
-
-  loading('Verbinde…');
-  const room=await fbGet(`rooms/${code}`);
-  if(!room){ alert('Raum nicht gefunden!'); scJoin(); return; }
-
-  S.roomCode=code; S.playerName=name; S.difficulty=room.difficulty;
-  S.myCard=null; S.myMarked=null; S.myAnswer=''; S.answerLocked=false;
-  S.amICorrect=null; S.canMark=false;
-
-  await fbSet(`rooms/${code}/players/${PID}`,{
-    name, card:null, marked:Array(25).fill(false),
-    answer:'', locked:false, answeredCorrect:false, score:0, bingo:false,
-  });
-
-  // Main listener
-  fbOn(fdb.ref(`rooms/${code}`),'value', snap=>{
-    if(!snap.exists()){ alert('Raum wurde geschlossen.'); fbOff(); scLanding(); return; }
-    const data=snap.val();
-    const prevP=S.phase;
-    S.phase=data.phase;
-    S.players=data.players||{};
-    S.round=data.round||null;
-    S.difficulty=data.difficulty||'easy';
-
-    // Get my data
-    const me=data.players?.[PID]||{};
-    if(me.card && !S.myCard){ S.myCard=me.card; }
-    if(me.marked) S.myMarked=me.marked;
-
-    // Phase transitions
-    if(S.phase==='lobby'||S.phase===null){ scPlayerWait(); return; }
-
-    if(S.phase==='ready'||S.phase==='start'){
-      stopTimer();
-      S.myAnswer=''; S.answerLocked=false; S.amICorrect=null; S.canMark=false;
-      scPlayerGame(); return;
-    }
-
-    if(S.phase==='spinning'){ stopTimer(); scPlayerGame(); return; }
-
-    if(S.phase==='listening'){
-      if(prevP!=='listening'){
-        stopTimer();
-        startTimer(30, (l,m)=>{ S.timerLeft=l; tickUI(l,m); }, ()=>{});
-      }
-      scPlayerGame(); return;
-    }
-
-    if(S.phase==='guessing'){
-      if(prevP!=='guessing'){
-        stopTimer();
-        S.myAnswer=''; S.answerLocked=false;
-        startTimer(30,
-          (l,m)=>{ S.timerLeft=l; tickUI(l,m); },
-          ()=>{ if(!S.answerLocked) doSubmit(); }
-        );
-      }
-      scPlayerGame(); return;
-    }
-
-    if(S.phase==='revealing'){
-      stopTimer();
-      if(S.round) S.amICorrect=checkAnswer(S.round.category, S.myAnswer, S.round);
-      S.canMark=!!S.amICorrect;
-      scPlayerGame(); return;
-    }
-
-    if(S.phase==='marking'){
-      S.canMark=!!S.amICorrect;
-      scPlayerGame(); return;
-    }
+  const code=$('jcode').value.toUpperCase(); const name=$('jname').value;
+  S.roomCode=code; S.playerName=name;
+  await fbSet(`rooms/${code}/players/${PID}`, { name, answer:'', score:0 });
+  fbOn(fdb.ref(`rooms/${code}`), 'value', snap => {
+    const data=snap.val(); S.phase=data.phase; S.round=data.round;
+    const me=data.players[PID]; S.myCard=me.card; S.myMarked=me.marked;
+    scPlayerGame();
   });
 }
 
-async function doSubmit(){
-  if(S.answerLocked) return;
-  S.answerLocked=true;
-  await fbUpd(`rooms/${S.roomCode}/players/${PID}`,{ answer:S.myAnswer||'', locked:true });
-  scPlayerGame();
+function scPlayerGame(){
+  const p=S.phase, r=S.round;
+  if(!S.myCard) { show('Warten...'); return; }
+  show(`<div style="padding:20px">
+    ${p==='guessing'?`<input class="inp" id="ans" oninput="S.myAnswer=this.value"><button onclick="doSubmit()">Senden</button>`:''}
+    ${p==='revealing'&&checkAnswer(r.category, S.myAnswer, r)?`<p>Richtig! Klicke zum Markieren.</p>`:''}
+    <div class="bgrid">${S.myCard.map((c,i)=>`<div class="bcell ${S.myMarked[i]?'marked':''}" onclick="doMark(${i})">${getCat(S.difficulty,c).icon}</div>`).join('')}</div>
+  </div>`);
 }
 
-async function doMark(idx){
-  if(!S.canMark||!S.amICorrect||!S.myCard||!S.myMarked) return;
-  if(S.myMarked[idx]) return;
-  if(S.myCard[idx]!==S.round.category) return;
+async function doSubmit(){ await fbUpd(`rooms/${S.roomCode}/players/${PID}`, { answer:S.myAnswer, locked:true }); }
 
-  S.myMarked[idx]=true;
-  S.canMark=false;
-
+async function doMark(i){
+  if(S.myMarked[i] || S.myCard[i]!==S.round.category) return;
+  S.myMarked[i]=true;
   await fbUpd(`rooms/${S.roomCode}/players/${PID}/marked`, S.myMarked);
-
-  if(checkBingo(S.myMarked)){
-    await fbUpd(`rooms/${S.roomCode}/players/${PID}`,{bingo:true, score:(S.players[PID]?.score||0)+1});
-    scWin(S.playerName); return;
-  }
-
-  scPlayerGame();
+  if(checkBingo(S.myMarked)) await fbUpd(`rooms/${S.roomCode}/players/${PID}`, { bingo:true });
 }
 
-// ════════════════════════════════════════════════════════════
-// INIT
-// ════════════════════════════════════════════════════════════
+function loading(msg){ show(`<div class="loader"><div class="loader-spin"></div><p>${msg}</p></div>`); }
+
 function init(){
-  const params = new URLSearchParams(window.location.search);
-  const h = window.location.hash;
-  
-  // 1. Prüfen, ob wir vom Spotify-Login zurückkommen (neuer 'code' oder alter 'token')
-  if(params.has('code') || h.includes('access_token')){
-    const success = parseToken(); 
-    if(success) {
-      // Wenn der Login erkannt wurde, laden wir direkt das Host-Menü
-      loadSDK(); 
-      S.role = 'host'; 
-      scHostSetup(); 
-      return; // Beendet die Funktion hier, damit scLanding() nicht geladen wird
-    }
-  }
-
-  // 2. Falls kein aktiver Login-Prozess erkannt wurde, zeige die Startseite
-  scLanding();
+  if(window.location.hash.includes('access_token')){ parseToken(); loadSDK(); S.role='host'; scHostSetup(); }
+  else scLanding();
 }
 
-// Startet die App
 init();
+</script>
+</body>
+</html>

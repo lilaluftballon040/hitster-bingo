@@ -265,24 +265,27 @@ async function fbGet(path){ return (await fdb.ref(path).once('value')).val(); }
 // ════════════════════════════════════════════════════════════
 function spotifyLogin(){
   sessionStorage.setItem('hb_return','host');
+  // Korrektur: Echte Spotify-URL und Umstellung auf response_type=token
   const authUrl = 'https://accounts.spotify.com/authorize'; 
-  const url = `${authUrl}?client_id=${CLIENT_ID}&response_type=code&redirect_uri=${encodeURIComponent(REDIRECT)}&scope=${encodeURIComponent(SCOPES)}&show_dialog=true`;
+  const url = `${authUrl}?client_id=${CLIENT_ID}&response_type=token&redirect_uri=${encodeURIComponent(REDIRECT)}&scope=${encodeURIComponent(SCOPES)}&show_dialog=true`;
   window.location.href = url;
 }
 
 function parseToken(){
-  const params = new URLSearchParams(window.location.search);
-  const code = params.get('code');
+  // Da wir response_type=token nutzen, schickt Spotify die Daten hinter einem '#' (Hash)
+  const hash = window.location.hash.slice(1);
+  const params = new URLSearchParams(hash);
+  const token = params.get('access_token');
   
-  if(code){
-    // Speichere den Code vorübergehend oder logge ihn
-    console.log("Code erhalten:", code);
-    // URL bereinigen, damit der Code beim Refresh verschwindet
+  if(token){
+    S.spotifyToken = token;
+    localStorage.setItem('hb_tok', token);
+    // Bereinigt die URL (entfernt den Token aus der Adresszeile)
     window.history.replaceState({}, document.title, window.location.pathname);
     return true; 
   }
   
-  // Fallback auf gespeicherten Token
+  // Fallback auf im Browser gespeicherten Token
   const st = localStorage.getItem('hb_tok');
   if(st){ 
     S.spotifyToken = st; 
@@ -294,12 +297,21 @@ function parseToken(){
 async function tokenValid(){
   if(!S.spotifyToken) return false;
   try{
-    const r=await fetch('https://api.spotify.com/v1/me',{headers:{Authorization:`Bearer ${S.spotifyToken}`}});
+    // Korrektur: Echter Spotify-Endpunkt zur Validierung
+    const r = await fetch('https://api.spotify.com/v1/me', {
+      headers: { Authorization: `Bearer ${S.spotifyToken}` }
+    });
     return r.ok;
-  }catch{ return false; }
+  } catch(e) { 
+    return false; 
+  }
 }
 
-function clearToken(){ localStorage.removeItem('hb_tok'); S.spotifyToken=null; }
+function clearToken(){ 
+  localStorage.removeItem('hb_tok'); 
+  S.spotifyToken = null; 
+}
+
 
 // ════════════════════════════════════════════════════════════
 // SPOTIFY PLAYER SDK

@@ -57,7 +57,7 @@ cd hitster-bingo
 1. Gehe zu [developer.spotify.com](https://developer.spotify.com) → „Create App"
 2. Trage folgende **Redirect URI** ein:
    ```
-   https://lilaluftballon040.github.io/hitster-bingo/hitster-bingo_v2.html
+   https://lilaluftballon040.github.io/hitster-bingo/hitster-bingo.html
    ```
    Für lokale Tests zusätzlich: `http://localhost`
 3. Aktiviere: **Web API** + **Web Playback SDK**
@@ -69,7 +69,7 @@ cd hitster-bingo
 2. Repo → **Settings → Pages → Branch: main → / (root) → Save**
 3. Nach ca. 1 Minute erreichbar unter:
    ```
-   https://lilaluftballon040.github.io/hitster-bingo/hitster-bingo_v2.html
+   https://lilaluftballon040.github.io/hitster-bingo/hitster-bingo.html
    ```
 
 Fertig. Kein Build-Prozess, kein npm, kein Server.

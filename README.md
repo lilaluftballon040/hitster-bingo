@@ -69,7 +69,7 @@ cd hitster-bingo
 2. Repo → **Settings → Pages → Branch: main → / (root) → Save**
 3. Nach ca. 1 Minute erreichbar unter:
    ```
-   https://lilaluftballon040.github.io/hitster-bingo/hitster-bingo.html
+   https://lilaluftballon040.github.io/hitster-bingo/hitster-bingo_v2.html
    ```
 
 Fertig. Kein Build-Prozess, kein npm, kein Server.

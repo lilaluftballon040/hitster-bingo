@@ -1,8 +1,11 @@
-🎂 **Alles Gute zum Geburtstag, Daniele!**
+**Alles Gute zum Geburtstag, Daniele!**
 
-Hier ist ein kleines Geburtstagsgeschenk – ein Musikrätsel-Spiel, das wir zusammen spielen können. Spotify an, Freunde einladen, und los geht's.
+Aus einer Mischung aus Uni-Prokrastination und der Suche nach einem halbwegs passenden Geschenk ist dieses Spiel hier entstanden.
+Da ich dich stark mit Musik verbinde, musste es einfach in die Richtung gehen.
 
-Auf viele weitere gute Momente 🎵
+Du hast mal gesagt, dass du kein Shazam brauchst, weil du eh alle Songs kennst – genau das stellen wir hier jetzt auf die Probe.
+
+Ein Hoch auf dich und viel Spaß beim Spielen.
 
 ---
 

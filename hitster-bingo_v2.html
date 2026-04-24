@@ -265,18 +265,29 @@ async function fbGet(path){ return (await fdb.ref(path).once('value')).val(); }
 // ════════════════════════════════════════════════════════════
 function spotifyLogin(){
   sessionStorage.setItem('hb_return','host');
-  const authUrl = 'https://accounts.spotify.com/authorize';
-  const url = `${authUrl}?client_id=${CLIENT_ID}&response_type=token&redirect_uri=${encodeURIComponent(REDIRECT)}&scope=${encodeURIComponent(SCOPES)}&show_dialog=true`;
+  const authUrl = 'https://accounts.spotify.com/authorize'; 
+  const url = `${authUrl}?client_id=${CLIENT_ID}&response_type=code&redirect_uri=${encodeURIComponent(REDIRECT)}&scope=${encodeURIComponent(SCOPES)}&show_dialog=true`;
   window.location.href = url;
 }
 
 function parseToken(){
-  const h=window.location.hash.slice(1);
-  const p=new URLSearchParams(h);
-  const t=p.get('access_token');
-  if(t){ S.spotifyToken=t; localStorage.setItem('hb_tok',t); history.replaceState({},'',' '); return true; }
-  const st=localStorage.getItem('hb_tok');
-  if(st){ S.spotifyToken=st; return true; }
+  const params = new URLSearchParams(window.location.search);
+  const code = params.get('code');
+  
+  if(code){
+    // Speichere den Code vorübergehend oder logge ihn
+    console.log("Code erhalten:", code);
+    // URL bereinigen, damit der Code beim Refresh verschwindet
+    window.history.replaceState({}, document.title, window.location.pathname);
+    return true; 
+  }
+  
+  // Fallback auf gespeicherten Token
+  const st = localStorage.getItem('hb_tok');
+  if(st){ 
+    S.spotifyToken = st; 
+    return true; 
+  }
   return false;
 }
 
@@ -515,16 +526,32 @@ function scHostSetup(){
   </div>`);
 }
 
-function canCreate(){ return !!S.spotifyToken && !!S.difficulty && !!(S.playlistUrl||'').trim(); }
+function canCreate(){ 
+  return (!!S.spotifyToken || !!(new URLSearchParams(window.location.search).get('code'))) && !!S.difficulty && !!(S.playlistUrl||'').trim(); 
+}
 
-async function beginHost(){
-  parseToken();
-  if(S.spotifyToken){
-    const v=await tokenValid();
-    if(!v){ clearToken(); }
+async function beginHost() {
+  // 1. Prüfen, ob wir einen Token (Bestand) oder einen Code (neu vom Login) in der URL haben
+  const hasAuth = parseToken();
+
+  // 2. Validierung des bestehenden Tokens
+  if (S.spotifyToken) {
+    const v = await tokenValid();
+    if (!v) { 
+      clearToken(); 
+      spotifyLogin(); // Falls der Token abgelaufen ist, sofort neu einloggen
+      return; 
+    }
+  } 
+  // 3. Wenn weder ein Token noch ein frischer Code gefunden wurde, Login erzwingen
+  else if (!hasAuth) {
+    spotifyLogin(); // Startet den Prozess mit response_type=code
+    return;
   }
+
+  // 4. Erfolg: SDK laden und Setup-Screen anzeigen
   loadSDK();
-  S.role='host';
+  S.role = 'host';
   scHostSetup();
 }
 
@@ -1100,14 +1127,24 @@ async function doMark(idx){
 // INIT
 // ════════════════════════════════════════════════════════════
 function init(){
-  const h=window.location.hash;
-  if(h.includes('access_token')){
-    parseToken(); loadSDK(); S.role='host'; scHostSetup(); return;
+  const params = new URLSearchParams(window.location.search);
+  const h = window.location.hash;
+  
+  // 1. Prüfen, ob wir vom Spotify-Login zurückkommen (neuer 'code' oder alter 'token')
+  if(params.has('code') || h.includes('access_token')){
+    const success = parseToken(); 
+    if(success) {
+      // Wenn der Login erkannt wurde, laden wir direkt das Host-Menü
+      loadSDK(); 
+      S.role = 'host'; 
+      scHostSetup(); 
+      return; // Beendet die Funktion hier, damit scLanding() nicht geladen wird
+    }
   }
+
+  // 2. Falls kein aktiver Login-Prozess erkannt wurde, zeige die Startseite
   scLanding();
 }
 
+// Startet die App
 init();
-</script>
-</body>
-</html>
